@@ -1,24 +1,534 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>green-yard-oasis</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawnc - Professional Lawn Care Services</title>
+    <meta name="description" content="Professional lawn care and landscaping services for residential and commercial properties">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="container">
+            <div class="header-left">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Mon-Fri: 8AM-6PM</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>info@lawnc.com</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <meta property="og:title" content="green-yard-oasis" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>Lawnc</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+            <button class="cta-button">Get a Quote</button>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="slideshow-container">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Professional Lawn Care">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Professional Lawn Care For A Picture Perfect Yard</h1>
+                    <p>Transform your outdoor space with our expert lawn care services. We provide comprehensive solutions for residential and commercial properties.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Discover Our Services</button>
+                        <button class="btn-secondary">Get Free Quote</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Garden Design">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Expert Garden Design & Maintenance</h1>
+                    <p>Create stunning landscapes that enhance your property value and provide year-round beauty with our professional design services.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">View Our Work</button>
+                        <button class="btn-secondary">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Landscaping">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1>Premium Landscaping Solutions</h1>
+                    <p>From concept to completion, we deliver exceptional landscaping services that bring your vision to life.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">Start Your Project</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <button class="slide-nav prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slide-nav next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Slide Indicators -->
+        <div class="slide-indicators">
+            <span class="indicator active" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+        </div>
+
+        <!-- Service Icons -->
+        <div class="service-icons">
+            <div class="service-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Garden Maintenance</h3>
+                <p>Regular upkeep and care for your garden</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Garden Design</h3>
+                <p>Professional landscape design services</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hammer"></i>
+                <h3>Decking and Patio</h3>
+                <p>Custom outdoor living spaces</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About Us">
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <span class="section-label">About Us</span>
+                    <h2>A Legacy Lawn Perfection & Customer Satisfaction</h2>
+                    <p>With over 7 years of experience in the lawn care industry, we've built a reputation for excellence and reliability. Our team of certified professionals is dedicated to transforming your outdoor space into a beautiful, healthy landscape.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>50+ Happy Clients</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>100+ Gardens Maintained</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>7+ Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>24/7 Customer Support</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary">Learn More About Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Services</span>
+                <h2>Transform Your Lawn With Our Expert Services</h2>
+                <p>We offer comprehensive lawn care and landscaping services to keep your outdoor space looking its best throughout the year.</p>
+            </div>
+            
+            <div class="services-grid" data-aos="fade-up">
+                <div class="service-card-large">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lawn Care">
+                    <div class="card-content">
+                        <h3>Lawn Care & Maintenance</h3>
+                        <p>Complete lawn care services including mowing, fertilizing, and seasonal maintenance.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card-large">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Landscape Design">
+                    <div class="card-content">
+                        <h3>Landscape Design</h3>
+                        <p>Custom landscape design solutions tailored to your property and preferences.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card-large">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Garden Installation">
+                    <div class="card-content">
+                        <h3>Garden Installation</h3>
+                        <p>Professional installation of plants, trees, and garden features.</p>
+                        <a href="#" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="choose-grid">
+                <div class="choose-content" data-aos="fade-right">
+                    <span class="section-label">Why Choose Us</span>
+                    <h2>Your Trusted Partner For A Greener, Healthier Lawn</h2>
+                    <p>We combine years of experience with modern techniques and eco-friendly practices to deliver exceptional results for your lawn and landscape.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Licensed & Insured</h4>
+                                <p>Fully licensed and insured for your peace of mind.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Eco-Friendly Methods</h4>
+                                <p>Sustainable practices that protect the environment.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Professional Team</h4>
+                                <p>Certified professionals with extensive training.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="experience-badge">
+                        <i class="fas fa-award"></i>
+                        <span>7+ Years of Experience</span>
+                    </div>
+                </div>
+                <div class="choose-image" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Why Choose Us">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonial-content" data-aos="fade-up">
+                <span class="section-label">Testimonials</span>
+                <h2>What Our Happy Customers Say</h2>
+                
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-left"></i>
+                    <blockquote>
+                        "Lawnc transformed our backyard into a beautiful oasis. Their attention to detail and professional service exceeded our expectations. We couldn't be happier with the results!"
+                    </blockquote>
+                    <div class="customer-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="John Miller">
+                        <div>
+                            <div class="customer-name">John Miller</div>
+                            <div class="customer-role">Homeowner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section -->
+    <section class="work-section" id="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Portfolio</span>
+                <h2>Precision Passion & Expertise Our Work In Action</h2>
+                <p>Take a look at some of our recent projects and see the quality craftsmanship that sets us apart.</p>
+            </div>
+            
+            <div class="work-gallery" data-aos="fade-up">
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project 1">
+                    <div class="work-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project 2">
+                    <div class="work-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="work-item">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Project 3">
+                    <div class="work-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Process</span>
+                <h2>How We Transform Your Lawn Step By Step</h2>
+                <p>Our proven 4-step process ensures exceptional results from initial consultation to ongoing maintenance.</p>
+            </div>
+            
+            <div class="process-grid" data-aos="fade-up">
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>Initial Consultation</h3>
+                    <p>We discuss your vision and assess your outdoor space</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>Custom Design</h3>
+                    <p>Our experts create a tailored plan for your property</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-hammer"></i>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>Professional Installation</h3>
+                    <p>Skilled craftsmen bring your design to life</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="step-number">4</div>
+                    <h3>Ongoing Maintenance</h3>
+                    <p>We keep your landscape looking its best year-round</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Our Blog</span>
+                <h2>Lawn Care Insights & Tips</h2>
+                <p>Stay updated with the latest lawn care tips, seasonal advice, and landscaping trends from our experts.</p>
+            </div>
+            
+            <div class="blog-grid" data-aos="fade-up">
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog Post">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>March 15, 2024</span>
+                        </div>
+                        <h3>Best Time to Plant Your Garden</h3>
+                        <p>Discover the optimal timing for planting different types of plants in your garden.</p>
+                        <a href="#" class="read-more">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog Post">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>March 10, 2024</span>
+                        </div>
+                        <h3>Lawn Care Tips for Spring</h3>
+                        <p>Essential spring lawn care practices to ensure a healthy, green lawn all season.</p>
+                        <a href="#" class="read-more">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Blog Post">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>March 5, 2024</span>
+                        </div>
+                        <h3>Sustainable Landscaping Ideas</h3>
+                        <p>Eco-friendly landscaping solutions that benefit both your garden and the environment.</p>
+                        <a href="#" class="read-more">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="cta-background">
+            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="CTA Background">
+            <div class="cta-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2>Lush, Green, & Hassle-Free – Book Your Service Today!</h2>
+                <p>Transform your outdoor space with our professional lawn care services. Get started with a free consultation today.</p>
+                <button class="btn-cta">Make Your Lawn Greener</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-brand">
+                        <i class="fas fa-leaf"></i>
+                        <span>Lawnc</span>
+                    </div>
+                    <p>Professional lawn care and landscaping services for residential and commercial properties. Your trusted partner for a greener future.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Team</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Lawn Maintenance</a></li>
+                        <li><a href="#">Garden Design</a></li>
+                        <li><a href="#">Tree Services</a></li>
+                        <li><a href="#">Irrigation</a></li>
+                        <li><a href="#">Hardscaping</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Garden Street<br>Green City, GC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@lawnc.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lawnc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
 </html>
