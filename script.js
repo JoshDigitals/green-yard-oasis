@@ -5,6 +5,19 @@ const slides = document.querySelectorAll('.slide');
 const indicators = document.querySelectorAll('.indicator');
 let slideInterval;
 
+// Throttle function for better performance
+function throttle(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeSlideshow();
@@ -13,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeImageLoading();
     initializeNewsletterForm();
     initializeSmoothScrolling();
+    initializeScrollEffects();
 });
 
 // Slideshow functionality
@@ -59,7 +73,7 @@ function prevSlide() {
 function currentSlide(index) {
     showSlide(index - 1);
     stopAutoSlide();
-    setTimeout(startAutoSlide, 3000); // Restart auto-slide after 3 seconds
+    setTimeout(startAutoSlide, 3000);
 }
 
 function changeSlide(direction) {
@@ -69,11 +83,11 @@ function changeSlide(direction) {
         prevSlide();
     }
     stopAutoSlide();
-    setTimeout(startAutoSlide, 3000); // Restart auto-slide after 3 seconds
+    setTimeout(startAutoSlide, 3000);
 }
 
 function startAutoSlide() {
-    stopAutoSlide(); // Clear any existing interval
+    stopAutoSlide();
     slideInterval = setInterval(nextSlide, 5000);
 }
 
@@ -162,7 +176,7 @@ function initializeImageLoading() {
             });
             
             img.addEventListener('error', function() {
-                this.classList.add('loaded'); // Still fade in even if error
+                this.classList.add('loaded');
                 console.log('Image failed to load:', this.src);
             });
         }
@@ -180,7 +194,6 @@ function initializeNewsletterForm() {
             const email = this.querySelector('input[type="email"]').value;
             
             if (validateEmail(email)) {
-                // Simulate form submission
                 showNotification('Thank you for subscribing!', 'success');
                 this.reset();
             } else {
@@ -198,13 +211,11 @@ function validateEmail(email) {
 
 // Notification system
 function showNotification(message, type = 'info') {
-    // Remove existing notification
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
         existingNotification.remove();
     }
     
-    // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
     notification.innerHTML = `
@@ -212,7 +223,6 @@ function showNotification(message, type = 'info') {
         <button onclick="this.parentElement.remove()">&times;</button>
     `;
     
-    // Add styles
     notification.style.cssText = `
         position: fixed;
         top: 20px;
@@ -229,7 +239,6 @@ function showNotification(message, type = 'info') {
         animation: slideInRight 0.3s ease-out;
     `;
     
-    // Add animation styles if not already present
     if (!document.querySelector('#notification-styles')) {
         const styles = document.createElement('style');
         styles.id = 'notification-styles';
@@ -257,7 +266,6 @@ function showNotification(message, type = 'info') {
     
     document.body.appendChild(notification);
     
-    // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentElement) {
             notification.style.animation = 'slideInRight 0.3s ease-out reverse';
@@ -278,7 +286,7 @@ function initializeSmoothScrolling() {
             const targetElement = document.getElementById(targetId);
             
             if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
+                const offsetTop = targetElement.offsetTop - 80;
                 
                 window.scrollTo({
                     top: offsetTop,
@@ -289,30 +297,48 @@ function initializeSmoothScrolling() {
     });
 }
 
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.backdropFilter = 'blur(10px)';
-        } else {
-            navbar.style.background = 'white';
-            navbar.style.backdropFilter = 'none';
-        }
-    }
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.5;
+// Initialize optimized scroll effects
+function initializeScrollEffects() {
+    // Throttled scroll handler for better performance
+    const handleScroll = throttle(() => {
+        const scrollY = window.pageYOffset;
         
-        hero.style.transform = `translateY(${parallax}px)`;
-    }
-});
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.background = 'white';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.boxShadow = 'none';
+            }
+        }
+        
+        // Optimized parallax effect for hero section
+        const hero = document.querySelector('.hero');
+        if (hero && scrollY < window.innerHeight) {
+            const parallax = scrollY * 0.3; // Reduced intensity
+            hero.style.transform = `translate3d(0, ${parallax}px, 0)`;
+        }
+        
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            if (scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.visibility = 'visible';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.visibility = 'hidden';
+            }
+        }
+    }, 16); // ~60fps throttling
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+}
 
 // Counter animation for stats
 function animateCounters() {
@@ -345,7 +371,7 @@ const statsObserver = new IntersectionObserver(function(entries) {
             statsObserver.unobserve(entry.target);
         }
     });
-});
+}, { threshold: 0.5 });
 
 const statsSection = document.querySelector('.stats-grid');
 if (statsSection) {
@@ -374,6 +400,9 @@ function createBackToTopButton() {
         transition: all 0.3s ease;
         z-index: 1000;
         font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     `;
     
     backToTop.addEventListener('click', function() {
@@ -384,17 +413,6 @@ function createBackToTopButton() {
     });
     
     document.body.appendChild(backToTop);
-    
-    // Show/hide on scroll
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 500) {
-            backToTop.style.opacity = '1';
-            backToTop.style.visibility = 'visible';
-        } else {
-            backToTop.style.opacity = '0';
-            backToTop.style.visibility = 'hidden';
-        }
-    });
 }
 
 // Initialize back to top button
@@ -428,7 +446,7 @@ const testimonialObserver = new IntersectionObserver(function(entries) {
             }
         }
     });
-});
+}, { threshold: 0.3 });
 
 const testimonialSection = document.querySelector('.testimonials-section');
 if (testimonialSection) {
@@ -476,14 +494,12 @@ function validateField(field) {
     let isValid = true;
     let errorMessage = '';
     
-    // Remove existing error
     field.classList.remove('error');
     const existingError = field.parentNode.querySelector('.error-message');
     if (existingError) {
         existingError.remove();
     }
     
-    // Check if required
     if (field.hasAttribute('required') && !value) {
         isValid = false;
         errorMessage = 'This field is required';
@@ -517,9 +533,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFormValidation();
 });
 
-// Handle window resize
-window.addEventListener('resize', function() {
-    // Adjust service icons position on mobile
+// Handle window resize with throttling
+const handleResize = throttle(() => {
     const serviceIcons = document.querySelector('.service-icons');
     if (serviceIcons) {
         if (window.innerWidth <= 768) {
@@ -530,7 +545,9 @@ window.addEventListener('resize', function() {
             serviceIcons.style.transform = 'translateX(-50%)';
         }
     }
-});
+}, 250);
+
+window.addEventListener('resize', handleResize);
 
 // Performance optimization - lazy loading for images
 function initializeLazyLoading() {
@@ -545,7 +562,7 @@ function initializeLazyLoading() {
                 imageObserver.unobserve(img);
             }
         });
-    });
+    }, { rootMargin: '50px' });
     
     images.forEach(img => imageObserver.observe(img));
 }
