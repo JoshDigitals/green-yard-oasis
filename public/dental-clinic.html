@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentCare - Professional Dental Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dental-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-tooth"></i>
+                <span>DentCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="appointment-btn">Book Appointment</button>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <img src="images/hero-dental.jpg" alt="Modern Dental Clinic">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Your Smile is Our Priority</h1>
+                <p class="hero-description">Experience world-class dental care with our team of expert dentists using the latest technology and techniques.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Book Consultation</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating 3D Cards -->
+        <div class="floating-cards">
+            <div class="floating-card card-1">
+                <i class="fas fa-user-md"></i>
+                <h3>Expert Dentists</h3>
+                <p>Certified professionals with years of experience</p>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-clock"></i>
+                <h3>24/7 Emergency</h3>
+                <p>Round-the-clock emergency dental care</p>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Safe & Hygienic</h3>
+                <p>Maintaining highest safety standards</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Services</span>
+                <h2>Comprehensive Dental Care</h2>
+                <p>We provide a full range of dental services to keep your smile healthy and beautiful</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service-1.jpg" alt="General Dentistry">
+                        <div class="service-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>General Dentistry</h3>
+                        <p>Comprehensive oral health care including cleanings, fillings, and preventive treatments.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service-2.jpg" alt="Orthodontics">
+                        <div class="service-icon">
+                            <i class="fas fa-grip-lines"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Orthodontics</h3>
+                        <p>Straighten your teeth with modern braces and clear aligners for a perfect smile.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="images/service-3.jpg" alt="Oral Surgery">
+                        <div class="service-icon">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Oral Surgery</h3>
+                        <p>Advanced surgical procedures including extractions and dental implants.</p>
+                        <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <div class="stat-label">Happy Patients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Expert Dentists</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="images/hero-dental.jpg" alt="About DentCare">
+                        <div class="floating-element">
+                            <i class="fas fa-award"></i>
+                            <span>Award Winning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">About Us</span>
+                    <h2>Leading Dental Care Since 2008</h2>
+                    <p>We are committed to providing exceptional dental care in a comfortable and friendly environment. Our team of experienced dentists uses the latest technology to ensure the best treatment outcomes.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>State-of-the-art equipment</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Experienced dental professionals</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Comfortable patient experience</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary">Learn More About Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact Us</span>
+                <h2>Schedule Your Appointment Today</h2>
+                <p>Ready to transform your smile? Get in touch with us to book your consultation</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Visit Us</h4>
+                            <p>123 Dental Street, Health City, HC 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p>info@dentcare.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-tooth"></i>
+                    <span>DentCare</span>
+                </div>
+                <p>&copy; 2024 DentCare. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dental-script.js"></script>
+</body>
+</html>
